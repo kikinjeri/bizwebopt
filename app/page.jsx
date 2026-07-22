@@ -1,189 +1,138 @@
-import { createServerClient } from "@/lib/supabase/server";
-import Head from "next/head";
+// /app/page.jsx
+import "./homepage.css";
 
-export default async function HomePage() {
-  const supabase = createServerClient();
-  const { data: businesses } = await supabase
-    .from("businesses")
-    .select("*")
-    .limit(3);
-  const demo = businesses?.[0] || null;
-
-  const businessSchema = demo && {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: demo.name,
-    telephone: demo.phone,
-    url: `https://${demo.website}`,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Ottawa",
-      addressRegion: "ON",
-      addressCountry: "CA",
-    },
-    areaServed: demo.areas,
-    priceRange: "$$",
-    description: `${demo.name} offers ${demo.services?.join(", ")} in ${demo.areas?.join(", ")}.`,
-  };
-
+export default function HomePage() {
   return (
-    <>
-      <Head>
-        {demo && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
-          />
-        )}
-      </Head>
-
-      {/* --- HERO SECTION --- */}
-      <section className="hero" role="banner">
-        <div className="container">
-          <h1 className="hero-title">
-            Modern Business Cards for{" "}
-            <span className="highlight">Ottawa&apos;s</span> Trade Professionals
-          </h1>
-          <p className="hero-subtitle">
-            Accessible, SEO‑optimized digital presence that ranks on Google and
-            works on every screen.
-          </p>
-
-          <div className="cta-group">
-            <a href="/directory" className="btn btn-primary">
-              Browse Directory
-            </a>
-            <a href="#business-info" className="btn btn-secondary">
-              For Business Owners
-            </a>
+    <main>
+      {/* NAVBAR */}
+      <nav className="navbar">
+        <div>
+          <div className="navbar-brand">BizWebOpt</div>
+          <div className="navbar-subtitle">
+            Ottawa’s Directory for Plumbers, Electricians & Home Repair
+            Professionals
           </div>
         </div>
-      </section>
 
-      {/* --- FEATURES SECTION --- */}
-      <section className="features">
-        <div className="container">
-          <h2 className="section-title">Built to Rank. Built to Convert.</h2>
-
-          <div className="feature-grid">
-            <div className="feature-card">
-              <h3>SEO Optimized</h3>
-              <p>
-                JSON‑LD structured data and neighborhood tags ensure you appear
-                for searches like “Pest Control in Kanata”.
-              </p>
-            </div>
-
-            <div className="feature-card">
-              <h3>WCAG Accessible</h3>
-              <p>
-                Semantic HTML, proper contrast, and screen‑reader friendly
-                navigation ensure every customer can reach you.
-              </p>
-            </div>
-
-            <div className="feature-card">
-              <h3>Mobile First</h3>
-              <p>
-                Looks sleek on any device. One tap to call, one click to map.
-              </p>
-            </div>
-          </div>
+        <div className="navbar-links">
+          <a className="nav-link" href="#">
+            Home
+          </a>
+          <a className="nav-link" href="#">
+            About
+          </a>
+          <a className="nav-link" href="#">
+            Contact
+          </a>
         </div>
-      </section>
+      </nav>
 
-      {/* --- DEMO SECTION --- */}
-      <section className="demo-section">
-        <div className="container demo-layout">
-          <div className="demo-text">
-            <h2>See It In Action</h2>
-            <p>
-              Here is a live example of a <strong>Pest Control Ottawa</strong>{" "}
-              card.
+      {/* HERO WITH PRODUCT PREVIEW */}
+      <section className="hero">
+        <div className="hero-grid">
+          {/* LEFT: COPY + CTAS */}
+          <div>
+            <h1 className="hero-title">Boosting Ottawa’s Local Businesses</h1>
+            <p className="hero-subtitle">
+              Give your business a modern, searchable digital card that helps
+              local customers find you.
             </p>
-            <ul>
-              <li>One‑tap calling & mapping</li>
-              <li>Structured data for Google ranking</li>
-              <li>Clean, modern design that builds trust</li>
-            </ul>
+
+            <div className="cta-group">
+              <a className="btn btn-primary" href="#">
+                Get Started
+              </a>
+              <a className="btn btn-secondary" href="#">
+                Learn More
+              </a>
+            </div>
           </div>
 
-          <div className="demo-card-wrapper">
-            {demo ? (
-              <div className="business-card">
-                <h3>{demo.name}</h3>
-                <p>Serving Ottawa & Area</p>
+          {/* RIGHT: DEMO CARD */}
+          <article className="demo-card">
+            <div className="demo-card-border">
+              <div className="demo-card-inner">
+                <h3 className="demo-card-title">Ottawa Home Pros</h3>
+                <p className="demo-card-tagline">
+                  Reliable home services for Ottawa neighborhoods.
+                </p>
+                <p className="demo-card-status">Open Now</p>
 
-                <a href={`tel:${demo.phone}`} className="contact-link">
-                  📞 {demo.phone}
-                </a>
-
-                <a
-                  href={`https://${demo.website}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact-link"
-                >
-                  🌐 {demo.website}
-                </a>
-
-                <div className="card-section">
-                  <h4>Services</h4>
-                  <div className="tags">
-                    {demo.services?.map((s, i) => (
-                      <span key={i} className="badge">
-                        {s}
-                      </span>
-                    ))}
+                <dl className="demo-card-details">
+                  <div className="detail-row">
+                    <dt>Location</dt>
+                    <dd>123 Mapleview Drive, Ottawa, ON</dd>
                   </div>
-                </div>
 
-                <div className="card-section">
-                  <h4>Service Areas</h4>
-                  <p>{demo.areas?.join(", ")}</p>
+                  <div className="detail-row">
+                    <dt>Phone</dt>
+                    <dd>
+                      <a href="tel:6135550199" className="contact-link">
+                        (613) 555‑0199
+                      </a>
+                    </dd>
+                  </div>
+
+                  <div className="detail-row">
+                    <dt>Website</dt>
+                    <dd>
+                      <a href="#" className="contact-link">
+                        ottawahomepros.example
+                      </a>
+                    </dd>
+                  </div>
+
+                  <div className="detail-row">
+                    <dt>Service Area</dt>
+                    <dd>Ottawa & Nearby Neighborhoods</dd>
+                  </div>
+                </dl>
+
+                <div className="demo-card-ctas">
+                  <a href="tel:6135550199" className="demo-cta">
+                    Call Now
+                  </a>
+                  <a href="#" className="demo-cta secondary">
+                    Get a Quote
+                  </a>
                 </div>
               </div>
-            ) : (
-              <p>No featured businesses yet.</p>
-            )}
-          </div>
+            </div>
+          </article>
         </div>
       </section>
 
-      {/* --- BUSINESS INFO SECTION --- */}
-      <section id="business-info" className="business-info">
-        <div className="container">
-          <h2>Cards that Direct Traffic to Your Business Website</h2>
-          <p>
-            BizWebOpt creates digital business cards that drive qualified
-            traffic from Google directly to your services.
-          </p>
+      {/* VALUE CHIPS */}
+      <section className="features container">
+        <div className="value-chips-row">
+          <div className="value-chip">
+            <div className="value-chip-inner">
+              <div className="value-chip-label">SEO‑Optimized</div>
+              <div className="value-chip-text">
+                Rank higher in Ottawa local searches.
+              </div>
+            </div>
+          </div>
 
-          <div className="benefits-list">
-            <div className="benefit-item">
-              <strong>Local SEO Dominance:</strong> Neighborhood‑tagged
-              services.
+          <div className="value-chip">
+            <div className="value-chip-inner">
+              <div className="value-chip-label">WCAG Accessible</div>
+              <div className="value-chip-text">
+                Structured, clean, readable design.
+              </div>
             </div>
-            <div className="benefit-item">
-              <strong>Zero‑Friction Contact:</strong> Clickable phone numbers
-              and addresses.
-            </div>
-            <div className="benefit-item">
-              <strong>Trust & Professionalism:</strong> Modern, accessible
-              design.
+          </div>
+
+          <div className="value-chip">
+            <div className="value-chip-inner">
+              <div className="value-chip-label">Mobile‑First</div>
+              <div className="value-chip-text">
+                Website access from any device and browser.
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* --- FOOTER --- */}
-      <footer className="footer">
-        <div className="container">
-          <p>
-            &copy; 2026 BizWebOpt. Built for Ottawa&apos;s Trade Professionals.
-          </p>
-        </div>
-      </footer>
-    </>
+    </main>
   );
 }
