@@ -1,4 +1,3 @@
-// /app/page.jsx
 import "./homepage.css";
 
 export default function HomePage() {

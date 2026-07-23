@@ -324,6 +324,133 @@ body {
   font-size: var(--font-sm);
   color: var(--text-primary);
 }
+.directory {
+  padding: var(--space-xl) 0;
+}
+
+.directory-title {
+  text-align: center;
+  color: var(--text-strong);
+  margin-bottom: var(--space-lg);
+}
+
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-lg);
+}
+/* BUSINESS CARD */
+.business-card {
+  max-width: 380px;
+}
+
+.business-card-border {
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--surface-2), var(--surface-2)),
+    var(--gradient-accent);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.business-card-inner {
+  background: var(--surface-2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.business-card-title {
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.business-card-tagline {
+  color: var(--text-soft);
+  margin-top: var(--space-xs);
+}
+
+.business-card-category {
+  color: var(--accent-primary);
+  font-weight: 600;
+  margin-top: var(--space-xs);
+}
+
+.business-card-details {
+  margin-top: var(--space-md);
+}
+
+.business-card-detail {
+  margin-bottom: var(--space-sm);
+  font-size: var(--font-sm);
+  color: var(--text-medium);
+}
+
+.business-card-ctas {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.business-cta {
+  flex: 1;
+  text-align: center;
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: 700;
+  text-decoration: none;
+  color: #ffffff;
+  background: var(--accent-primary);
+  transition: 0.2s ease;
+}
+
+.business-cta.secondary {
+  background: rgba(148, 163, 184, 0.35);
+}
+
+.business-cta:hover {
+  background: var(--accent-secondary);
+}
+/* DIRECTORY TABLE */
+.directory-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.directory-header,
+.directory-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr 1fr 0.5fr;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+
+.directory-header {
+  font-weight: 700;
+  background: var(--surface-3);
+  border-radius: var(--radius-md);
+}
+
+.directory-row {
+  background: var(--surface-2);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.directory-link {
+  color: var(--accent-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.directory-link:hover {
+  color: var(--accent-secondary);
+}
 
 /* ==========================================================
    FOOTER
