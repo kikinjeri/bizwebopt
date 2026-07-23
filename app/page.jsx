@@ -3,29 +3,6 @@ import "./homepage.css";
 export default function HomePage() {
   return (
     <main>
-      {/* NAVBAR */}
-      <nav className="navbar">
-        <div>
-          <div className="navbar-brand">BizWebOpt</div>
-          <div className="navbar-subtitle">
-            Ottawa’s Directory for Plumbers, Electricians & Home Repair
-            Professionals
-          </div>
-        </div>
-
-        <div className="navbar-links">
-          <a className="nav-link" href="#">
-            Home
-          </a>
-          <a className="nav-link" href="#">
-            About
-          </a>
-          <a className="nav-link" href="#">
-            Contact
-          </a>
-        </div>
-      </nav>
-
       {/* HERO WITH PRODUCT PREVIEW */}
       <section className="hero">
         <div className="hero-grid">
