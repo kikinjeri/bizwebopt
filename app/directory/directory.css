@@ -1,0 +1,87 @@
+/* Container */
+.directory-container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+/* Search Bar */
+.directory-search input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  color: #111; /* WCAG AA */
+  background: #fff;
+}
+
+.directory-search input::placeholder {
+  color: #666; /* WCAG AA */
+}
+
+.directory-search input:focus {
+  outline: 2px solid #4a90e2;
+  border-color: #4a90e2;
+}
+
+/* Category Heading */
+.directory-category h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 1.5rem 0 0.75rem;
+  color: #0675ec;
+}
+
+/* Business Item */
+.directory-item {
+  padding: 0.75rem 0.75rem;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+/* Soft hover using opacity */
+.directory-item:hover {
+  background: rgba(45, 44, 44, 0.05);
+}
+
+/* Business Name Link */
+.directory-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #b7d1ed; /* Accessible blue */
+  text-decoration: none;
+}
+
+.directory-name:hover {
+  text-decoration: underline;
+  color: #b7d1ed;
+}
+
+/* Detail Line */
+.directory-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #b7d1ed; /* High contrast */
+}
+
+/* Neighborhood slightly lighter but still AA */
+.directory-details span {
+  color: #b7d1ed;
+}
+
+/* Phone link */
+.directory-details a {
+  color: #b7d1ed;
+  text-decoration: none;
+}
+
+.directory-details a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
