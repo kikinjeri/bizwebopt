@@ -1,3 +1,5 @@
+// app/directory/page.jsx
+
 import loadBusiness from "../../lib/loadBusinesses";
 import Link from "next/link";
 
@@ -24,7 +26,8 @@ export default async function DirectoryPage() {
             <span className="directory-address">{biz.address}</span>
             <span className="directory-neighborhood">{biz.neighborhood}</span>
 
-            <Link className="directory-link" href={`/business/${biz.id}`}>
+            {/* Updated to use slug instead of ID */}
+            <Link className="directory-link" href={`/business/${biz.slug}`}>
               View →
             </Link>
           </div>

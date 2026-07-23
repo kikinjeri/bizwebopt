@@ -1,19 +1,19 @@
-/* ==========================================================
-   GLOBAL RESET + BASE
-   Premium Copilot-style, vibrant, WCAG-accessible
-========================================================== */
-
 @import "tailwindcss";
 
-/* Remove default browser margins and enforce dark background */
-html, body {
+/* ==========================================================
+   RESET & BASE
+========================================================== */
+
+html,
+body {
   margin: 0;
   padding: 0;
   background: var(--bg-primary);
   color: var(--text-primary);
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
 }
 
-/* Remove any accidental top banner or leftover block */
 body > div:first-child,
 header:first-child {
   background: transparent !important;
@@ -23,25 +23,35 @@ header:first-child {
   box-shadow: none !important;
 }
 
+/* ==========================================================
+   THEME VARIABLES — DARK MODE (DEFAULT)
+========================================================== */
 
-/* Root palette — vibrant Copilot-inspired */
 :root {
   /* Backgrounds */
-  --bg-primary: #0f172a;   /* deep navy */
-  --bg-secondary: #1e293b; /* slate */
-  --bg-elevated: #111827;  /* elevated dark */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-elevated: #111827;
 
-  /* Text — WCAG AA compliant */
-  --text-primary: #f8fafc; /* brighter white for AA */
+  /* Surfaces */
+  --surface-1: #1e2533;
+  --surface-2: #252c3b;
+  --surface-hover: #2d3546;
+
+  /* Text */
+  --text-primary: #f8fafc;
   --text-secondary: #e2e8f0;
   --text-muted: #cbd5e1;
+  --text-strong: #ffffff;
+  --text-medium: #e5e7eb;
+  --text-soft: #cbd5e1;
 
-  /* Accent — adjusted for WCAG AA */
-  --accent-primary: #4f46e5;  /* deeper violet, better contrast */
-  --accent-secondary: #4338ca; /* darker indigo */
-  --accent-tertiary: #7c3aed;  /* vibrant violet */
+  /* Accent */
+  --accent-primary: #4f46e5;
+  --accent-secondary: #4338ca;
+  --accent-tertiary: #7c3aed;
 
-  /* Gradient — unchanged (already AA compliant with white text) */
+  /* Gradient */
   --gradient-accent: linear-gradient(135deg, #4338ca, #4f46e5);
 
   /* Radius */
@@ -53,14 +63,14 @@ header:first-child {
   --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.25);
   --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
 
-  /* Spacing scale */
+  /* Spacing */
   --space-xs: 0.35rem;
   --space-sm: 0.65rem;
   --space-md: 1rem;
   --space-lg: 1.75rem;
   --space-xl: 3rem;
 
-  /* Typography scale */
+  /* Typography */
   --font-xl: clamp(2.2rem, 5vw, 3.5rem);
   --font-lg: clamp(1.6rem, 3vw, 2.2rem);
   --font-md: clamp(1.2rem, 2vw, 1.4rem);
@@ -68,55 +78,28 @@ header:first-child {
 }
 
 /* ==========================================================
-   LIGHTENED SURFACES FOR READABILITY (WCAG aligned)
-========================================================== */
-
-:root {
-  --surface-1: #1e2533;   /* lighter slate */
-  --surface-2: #252c3b;   /* elevated slate */
-  --surface-hover: #2d3546;
-}
-
-/* Text contrast improvements */
-:root {
-  --text-strong: #ffffff;   /* AA on all dark surfaces */
-  --text-medium: #e5e7eb;   /* AA */
-  --text-soft: #cbd5e1;     /* AA */
-}
-
-/* ==========================================================
-   LIGHT MODE — WCAG AA compliant
+   LIGHT MODE — WCAG AA
 ========================================================== */
 
 [data-theme="light"] {
   --bg-primary: #ffffff;
-  --bg-secondary: #f1f5f9; /* slightly darker for contrast */
+  --bg-secondary: #f1f5f9;
   --bg-elevated: #ffffff;
 
   --text-primary: #0f172a;
   --text-secondary: #334155;
-  --text-muted: #475569; /* darker muted text for AA */
+  --text-muted: #475569;
 
-  /* Accent buttons — darker for AA contrast */
-  --accent-primary: #4338ca; /* AA with white text */
+  --accent-primary: #4338ca;
   --accent-secondary: #3730a3;
 
   --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
-/* ========================================================== */
-   BASE ELEMENTS
-/*========================================================== */
 
-body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-}
+/* ==========================================================
+   LAYOUT
+========================================================== */
 
-/* Container */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -124,7 +107,7 @@ body {
 }
 
 /* ==========================================================
-   NAVBAR — Premium SaaS
+   NAVBAR
 ========================================================== */
 
 .navbar {
@@ -163,7 +146,7 @@ body {
 }
 
 /* ==========================================================
-   HERO — Premium Gradient
+   HERO
 ========================================================== */
 
 .hero {
@@ -186,7 +169,6 @@ body {
   margin: 0 auto var(--space-lg);
 }
 
-/* CTA Buttons */
 .cta-group {
   display: flex;
   gap: var(--space-md);
@@ -221,7 +203,7 @@ body {
 }
 
 /* ==========================================================
-   FEATURE PILLS — Premium
+   FEATURE PILLS
 ========================================================== */
 
 .feature-pill-row {
@@ -250,7 +232,6 @@ body {
 .feature-pill-label {
   font-weight: 700;
   cursor: pointer;
-  list-style: none;
 }
 
 .feature-pill-content {
@@ -260,7 +241,7 @@ body {
 }
 
 /* ==========================================================
-   DEMO CARD — Premium Gradient Border
+   DEMO CARD
 ========================================================== */
 
 .demo-card {
@@ -298,7 +279,7 @@ body {
 }
 
 /* ==========================================================
-   VALUE SECTION — Premium
+   VALUE SECTION
 ========================================================== */
 
 .value-section {
@@ -324,6 +305,11 @@ body {
   font-size: var(--font-sm);
   color: var(--text-primary);
 }
+
+/* ==========================================================
+   DIRECTORY
+========================================================== */
+
 .directory {
   padding: var(--space-xl) 0;
 }
@@ -334,14 +320,55 @@ body {
   margin-bottom: var(--space-lg);
 }
 
-.directory-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: var(--space-lg);
+.directory-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
 }
-/* BUSINESS CARD */
-.business-card {
-  max-width: 380px;
+
+.directory-header,
+.directory-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr 1fr 0.5fr;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+
+.directory-header {
+  font-weight: 700;
+  background: var(--bg-secondary); /* Option C */
+  border-radius: var(--radius-md);
+}
+
+.directory-row {
+  background: var(--surface-2);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.directory-link {
+  color: var(--accent-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.directory-link:hover {
+  color: var(--accent-secondary);
+}
+
+/* ==========================================================
+   BUSINESS CARD
+========================================================== */
+
+.business-card-large {
+  max-width: 600px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  padding: 1.25rem;
+}
+.business-card-credit {
+  opacity: 0.8;
 }
 
 .business-card-border {
@@ -414,42 +441,32 @@ body {
 .business-cta:hover {
   background: var(--accent-secondary);
 }
-/* DIRECTORY TABLE */
-.directory-table {
+
+/* ==========================================================
+   CARD PREVIEW (Screenshot Page)
+========================================================== */
+
+.card-preview-wrapper {
+  background: #f7f7f7;
+  min-height: 100vh;
+  padding: 40px;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 2rem;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.directory-header,
-.directory-row {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr 1fr 0.5fr;
-  align-items: center;
-  padding: 0.75rem 1rem;
+.card-preview-container {
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 420px;
+  width: 100%;
 }
 
-.directory-header {
-  font-weight: 700;
-  background: var(--surface-3);
-  border-radius: var(--radius-md);
-}
-
-.directory-row {
-  background: var(--surface-2);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
-}
-
-.directory-link {
-  color: var(--accent-primary);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.directory-link:hover {
-  color: var(--accent-secondary);
+.not-found {
+  padding: 2rem;
+  font-size: 1rem;
 }
 
 /* ==========================================================

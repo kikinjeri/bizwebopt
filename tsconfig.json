@@ -19,8 +19,11 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
-    }
+  "@/*": ["./app/*"],
+  "@components/*": ["./app/components/*"],
+  "@lib/*": ["./lib/*"]
+}
+
   },
   "include": [
     "next-env.d.ts",
@@ -28,7 +31,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
-, "app/layout.jsx", "app/page.jsx"  ],
+    "**/*.mts",
+    "app/layout.jsx",
+    "app/page.jsx"
+  ],
   "exclude": ["node_modules"]
 }
