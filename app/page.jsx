@@ -165,6 +165,26 @@ export default function HomePage() {
                       {selected?.address || "123 Mapleview Drive, Ottawa, ON"}
                     </dd>
                   </div>
+                  {/* DIRECTIONS */}
+                  <div className="detail-row">
+                    <dt>Directions</dt>
+                    <dd>
+                      <a
+                        href={
+                          selected?.map_url
+                            ? selected.map_url
+                            : selected?.lat && selected?.lng
+                              ? `https://www.google.com/maps?q=${selected.lat},${selected.lng}`
+                              : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected?.address || "")}`
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="contact-link"
+                      >
+                        Get Directions
+                      </a>
+                    </dd>
+                  </div>
 
                   {/* PHONE */}
                   <div className="detail-row">
