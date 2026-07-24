@@ -1,5 +1,3 @@
-// components/BusinessCard.jsx
-
 import Link from "next/link";
 
 export default function BusinessCard({ business, embed = false }) {
@@ -20,14 +18,17 @@ export default function BusinessCard({ business, embed = false }) {
   const detailUrl = slug ? `/business/${slug}` : "#";
 
   return (
-    <div className="business-card business-card-large">
+    <article
+      className="business-card business-card-large"
+      aria-labelledby={`business-name-${slug}`}
+    >
       <div className="business-card-border">
         <div className="business-card-inner">
           {/* Header */}
-          <div className="business-card-header">
-            {/* Name → Website */}
+          <header className="business-card-header">
             {website ? (
               <a
+                id={`business-name-${slug}`}
                 href={website}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -36,19 +37,22 @@ export default function BusinessCard({ business, embed = false }) {
                 {business.name}
               </a>
             ) : (
-              <h3 className="business-card-title">{business.name}</h3>
+              <h2 id={`business-name-${slug}`} className="business-card-title">
+                {business.name}
+              </h2>
             )}
 
-            {/* ⭐ Bold tagline */}
-            <p className="business-card-tagline font-bold">{tagline}</p>
+            {tagline && (
+              <p className="business-card-tagline font-bold">{tagline}</p>
+            )}
 
             <p className="business-card-category">
               {categoryLabel} · {neighborhood}
             </p>
-          </div>
+          </header>
 
           {/* Details */}
-          <div className="business-card-details">
+          <section className="business-card-details">
             {address && (
               <p className="business-card-detail">
                 <strong>Address:</strong>{" "}
@@ -57,6 +61,7 @@ export default function BusinessCard({ business, embed = false }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="directory-link"
+                  aria-label={`Get directions to ${business.name}`}
                 >
                   {address}
                 </a>
@@ -66,7 +71,11 @@ export default function BusinessCard({ business, embed = false }) {
             {phone && (
               <p className="business-card-detail">
                 <strong>Phone:</strong>{" "}
-                <a href={`tel:${phone}`} className="directory-link">
+                <a
+                  href={`tel:${phone}`}
+                  className="directory-link"
+                  aria-label={`Call ${business.name} at ${phone}`}
+                >
                   {phone}
                 </a>
               </p>
@@ -80,17 +89,22 @@ export default function BusinessCard({ business, embed = false }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="directory-link"
+                  aria-label={`Visit ${business.name} website`}
                 >
                   {website}
                 </a>
               </p>
             )}
-          </div>
+          </section>
 
           {/* Buttons */}
-          <div className="business-card-ctas">
+          <nav className="business-card-ctas" aria-label="Business actions">
             {detailUrl !== "#" && (
-              <Link href={detailUrl} className="business-cta">
+              <Link
+                href={detailUrl}
+                className="business-cta"
+                aria-label={`View full details for ${business.name}`}
+              >
                 View details
               </Link>
             )}
@@ -101,20 +115,20 @@ export default function BusinessCard({ business, embed = false }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="business-cta secondary"
+                aria-label={`Get directions to ${business.name}`}
               >
                 Directions
               </a>
             )}
-          </div>
+          </nav>
 
-          {/* ⭐ New bottom-right credit */}
           {!embed && (
-            <div className="business-card-credit text-right text-xs text-gray-500 mt-4">
+            <footer className="business-card-credit text-right text-xs text-gray-500 mt-4">
               brought to you by BizWebOpt
-            </div>
+            </footer>
           )}
         </div>
       </div>
-    </div>
+    </article>
   );
 }

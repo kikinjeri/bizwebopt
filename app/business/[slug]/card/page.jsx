@@ -7,7 +7,7 @@ export const revalidate = 60;
 
 // Dynamic metadata for SEO
 export async function generateMetadata({ params }) {
-  const { slug } = await params; // ⭐ REQUIRED FIX
+  const { slug } = await params; // ✅ FIXED
 
   const businesses = await loadBusiness();
   const business = businesses.find((b) => b.slug === slug);
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BusinessPage({ params }) {
-  const { slug } = await params; // ⭐ REQUIRED FIX
+  const { slug } = await params; // ✅ FIXED
 
   const businesses = await loadBusiness();
   const business = businesses.find((b) => b.slug === slug);

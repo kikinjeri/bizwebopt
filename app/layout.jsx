@@ -54,31 +54,6 @@ export default function RootLayout({ children }) {
       </head>
 
       <body>
-        <nav className="navbar">
-          <div>
-            <div className="navbar-brand">BizWebOpt</div>
-            <div className="navbar-subtitle">
-              Ottawa’s Directory for Plumbers, Electricians & Home Repair
-              Professionals
-            </div>
-          </div>
-
-          <div className="navbar-links">
-            <Link className="nav-link" href="/">
-              Home
-            </Link>
-            <Link className="nav-link" href="/directory">
-              Directory
-            </Link>
-            <Link className="nav-link" href="#">
-              About
-            </Link>
-            <Link className="nav-link" href="#">
-              Contact
-            </Link>
-          </div>
-        </nav>
-
         <main>{children}</main>
 
         <footer aria-label="Site footer">
