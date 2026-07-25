@@ -76,10 +76,13 @@ export default function HomePage() {
         <div className="container hero-grid">
           {/* LEFT */}
           <div className="hero-copy">
-            <h1 className="hero-title">Boosting Ottawa’s Local Businesses</h1>
+            <h1 className="hero-title">
+              {" "}
+              Ottawa Home Repair Business Directory
+            </h1>
             <p className="hero-subtitle">
-              Give your business a modern, searchable digital card that helps
-              local customers find you.
+              Find Plumbers, Electricians, Roofers & More in Ottawa. Get
+              Directions, and Contact Info for Local Home Repair Professionals.
             </p>
 
             {/* REAL-TIME SEARCH BAR */}
